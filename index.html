@@ -212,6 +212,27 @@
 				color: orange;
 				margin-left: 10px;
 			}
+			/*cover*/
+			.upload-pic {
+			    position: relative;
+			    display: inline-block;
+			    background: #D0EEFF;
+			    border: 1px solid #99D3F5;
+			    border-radius: 4px;
+			    padding: 4px 12px;
+			    overflow: hidden;
+			    color: #1E88C7;
+			    text-decoration: none;
+			    text-indent: 0;
+			    line-height: 20px;
+			}
+			.upload-pic input {
+			    position: absolute;
+			    font-size: 100px;
+			    right: 0;
+			    top: 0;
+			    opacity: 0;
+			}
 		</style>
 	</head>
 	<body>
@@ -220,8 +241,12 @@
 		    <div class="swiper-wrapper">
 		    	<!--第一页-->
 		        <div class="swiper-slide cover">
-		        	<img src="img/num1/num1-cover.png"/>
-		        	<a class="ani" swiper-animate-effect="bounceInLeft" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">添加封面照片</a>
+		        	<canvas id="cover-bg" width="500px" height="500px">
+		        		
+		        	</canvas>
+					<a href="javascript:;" class="upload-pic">选择文件
+					    <input type="file" name="" id="">
+					</a>
 		        </div>
 		        <!--第二页-->
 		        <div class="swiper-slide middle">
@@ -402,6 +427,12 @@
 		}
 	</script>
 	<script>
+		var coverBg = document.getElementById('cover-bg');
+		var ctxCoverBg = coverBg.getContext("2d");
+		
+		var img = new Image();
+		img.src = 'img/num1/num1-cover.png';
+		ctxCoverBg.drawImage(img, 0, 0);
 		
 	</script>
 	<script type="text/javascript">
