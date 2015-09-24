@@ -226,6 +226,8 @@
 				position: absolute;
 				left: 0;
 				top: 0;
+				width:100%;
+				height:100%;
 			}
 		</style>
 	</head>
@@ -431,7 +433,9 @@
 		
 		var img = new Image();
 		img.src = 'img/num1/img.jpg';
-		img.onload = function () {  
+		img.onload = function () { 
+			coverBg.width = img.width;
+			coverBg.height = img.height;
 			ctxCoverBg.drawImage(img, 0, 0);
 		}
 		
