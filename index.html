@@ -202,7 +202,8 @@
 			}
 			/*cover*/
 			.upload-pic {
-			    position: relative;
+			    position: absolute;
+			    left: 50%;
 			    top: 50%;
 			    display: inline-block;
 			    background: #D0EEFF;
@@ -237,9 +238,10 @@
 		    <div class="swiper-wrapper">
 		    	<!--第一页-->
 		        <div class="swiper-slide cover">
-		        	<canvas id="cover-bg">
+		        	<canvas id="cover-bg"></canvas>
+		        	<div class="words">
 		        		
-		        	</canvas>
+		        	</div>
 					<a href="javascript:;" class="upload-pic">选择文件
 					    <input type="file" name="" id="">
 					</a>
