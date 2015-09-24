@@ -36,19 +36,7 @@
 		        font-size: 18px;
 		        background: white;
 			}
-			.cover{
-				position: relative;
-			}
-			.cover img{
-				width: 100%;
-				height: 100%;
-			}
-			.cover a{
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				margin-left: -50px;
-			}
+			
 			.last{
 				background: url(img/lastpage-bg.png);
 			}
@@ -215,6 +203,7 @@
 			/*cover*/
 			.upload-pic {
 			    position: relative;
+			    top: 50%;
 			    display: inline-block;
 			    background: #D0EEFF;
 			    border: 1px solid #99D3F5;
@@ -233,6 +222,11 @@
 			    top: 0;
 			    opacity: 0;
 			}
+			#cover-bg{
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
 		</style>
 	</head>
 	<body>
@@ -241,7 +235,7 @@
 		    <div class="swiper-wrapper">
 		    	<!--第一页-->
 		        <div class="swiper-slide cover">
-		        	<canvas id="cover-bg" width="500px" height="500px">
+		        	<canvas id="cover-bg">
 		        		
 		        	</canvas>
 					<a href="javascript:;" class="upload-pic">选择文件
@@ -426,17 +420,21 @@
 			}
 		}
 	</script>
-	<script>
+	<script type="text/javascript">
+		var deviceHeight = $(window).height();
+		var deviceWidth = $(window).width();
+		$('html').css('height',deviceHeight);
+	</script>
+	<script type="text/javascript">
 		var coverBg = document.getElementById('cover-bg');
 		var ctxCoverBg = coverBg.getContext("2d");
 		
 		var img = new Image();
-		img.src = 'img/num1/num1-cover.png';
-		ctxCoverBg.drawImage(img, 0, 0);
+		img.src = 'img/num1/img.jpg';
+		img.onload = function () {  
+			ctxCoverBg.drawImage(img, 0, 0);
+		}
 		
 	</script>
-	<script type="text/javascript">
-		var deviceHeight = $(window).height();
-		$('html').css('height',deviceHeight);
-	</script>
+
 </html>
