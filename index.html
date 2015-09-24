@@ -14,11 +14,13 @@
 				height: 100%;
 			}
 			body{
+				font-family: "微软雅黑";
 				background: gainsboro;
 		        margin: 0;
         		padding: 0;
         		width: 100%;
 		        height: 100%;
+		        font-size:;
 			}
 			body .dis-none{
 				display: none;
@@ -36,7 +38,6 @@
 		        font-size: 18px;
 		        background: white;
 			}
-			
 			.last{
 				background: url(img/lastpage-bg.png);
 			}
@@ -118,9 +119,7 @@
 				height: 100%;
 				padding-left: 10px;
 			}
-			.part-down .button{
-				
-			}
+			.part-down .button{}
 			.part-down .button button{
 				background: green;
 				outline: none;
@@ -215,6 +214,7 @@
 			    text-decoration: none;
 			    text-indent: 0;
 			    line-height: 20px;
+			    margin-left: -50px;
 			}
 			.upload-pic input {
 			    position: absolute;
@@ -223,12 +223,39 @@
 			    top: 0;
 			    opacity: 0;
 			}
-			#cover-bg{
+			.cover #cover-bg{
 				position: absolute;
 				left: 0;
 				top: 0;
 				width:100%;
 				height:100%;
+			}
+			.cover .cover-words-title{
+				font-size: 1.125rem;
+				position: absolute;
+				left: 25%;
+				top: 11%;
+				width: 50%;
+			}
+			.cover .cover-words-title>div>span:first-child{
+				float: left;
+			}
+			.cover .cover-words-title>div>span:nth-child(2){
+				float: right;
+			}
+			.cover .cover-words-time{
+				text-align: left;
+				font-size: 0.875rem;
+				position: absolute;
+				left: 35%;
+				top: 76.4%;
+			}
+			.cover .cover-words-address{
+				text-align: left;
+				font-size: 0.875rem;
+				position: absolute;
+				left: 35%;
+				top: 85%;
 			}
 		</style>
 	</head>
@@ -239,8 +266,23 @@
 		    	<!--第一页-->
 		        <div class="swiper-slide cover">
 		        	<canvas id="cover-bg"></canvas>
-		        	<div class="words">
-		        		
+		        	<div class="cover-words-title">
+		        		<div class="">
+		        			<span>陈思成</span>
+		        			<span>董妮娅</span>
+		        		</div>
+		        	</div>
+		        	<div class="cover-words-time">
+		        		<div class="">
+		        			<article>2016年02月14日12时0分</article>
+		        			<article>农历：正月初七</article>
+		        		</div>
+		        	</div>
+		        	<div class="cover-words-address">
+		        		<div class="">
+		        			<article>合肥希尔顿大酒店</article>
+		        			<article>国际厅4F</article>
+		        		</div>
 		        	</div>
 					<a href="javascript:;" class="upload-pic">选择文件
 					    <input type="file" name="" id="">
@@ -425,9 +467,14 @@
 		}
 	</script>
 	<script type="text/javascript">
-		var deviceHeight = $(window).height();
-		var deviceWidth = $(window).width();
-		$('html').css('height',deviceHeight);
+		makeFixedScreenSize();
+		function makeFixedScreenSize(){
+			var deviceHeight = $(window).height();
+			var deviceWidth = $(window).width();
+			$('html').css('height',deviceHeight);	
+			console.log(deviceHeight);
+		}
+		window.addEventListener("resize",makeFixedScreenSize);
 	</script>
 	<script type="text/javascript">
 		var coverBg = document.getElementById('cover-bg');
@@ -440,7 +487,19 @@
 			coverBg.height = img.height;
 			ctxCoverBg.drawImage(img, 0, 0);
 		}
-		
 	</script>
-
+	<script type="text/javascript">
+		const proportion = 39.375;
+		var html = document.querySelector('html');
+		resizeFontSize();
+		window.addEventListener('resize',resizeFontSize);
+		
+		function resizeFontSize(){
+			this.deviceHeight = $(window).height();
+			this.fontScale = (this.deviceHeight+3)/proportion;
+			this.fontSize = this.fontScale;
+			html.style.fontSize = this.fontSize + 'px';
+			console.log(this.fontSize);
+		}
+	</script>
 </html>
