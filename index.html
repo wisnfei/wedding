@@ -20,7 +20,6 @@
         		padding: 0;
         		width: 100%;
 		        height: 100%;
-		        font-size:;
 			}
 			body .dis-none{
 				display: none;
@@ -298,6 +297,11 @@
 			    background-color: rgb(243, 241, 236);
 			}
 			.anchorBL{display:none}
+			#pic-page1-bg,#pic-page2-bg,#pic-page3-bg,#pic-page4-bg,#pic-page5-bg{
+				width: 100%;
+				height: 100%;
+			}
+
 		</style>
 	</head>
 	<body>
@@ -326,10 +330,180 @@
 		        			<article>国际厅4F</article>
 		        		</div>
 		        	</div>
-					<a href="javascript:;" class="upload-pic">选择文件
+					<a href="javascript:;" class="upload-pic" style="display: none;">选择文件
 					    <input type="file" name="" id="">
 					</a>
 		        </div>
+		        <!--相册1-->
+		        <section class="swiper-slide pic-page1">
+		        	<style type="text/css" scoped="">
+		        		#pic-page1-photo1{
+						    position: absolute;
+						    left: 19%;
+						    top: 19.6%;
+						    width: 63.8%;
+						    height: 53%;
+						    transform: rotate(-8deg);
+						    -webkit-transform: rotate(-8deg);
+							-moz-transform: rotate(-8deg);
+							-ms-transform: rotate(-8deg);
+							-o-transform: rotate(-8deg);
+						}
+		        	</style>
+		        	<canvas id="pic-page1-bg"></canvas>
+		        	<canvas id="pic-page1-photo1"></canvas>
+		        </section>
+		        <!--相册2-->
+		        <section class="swiper-slide pic-page2">
+		        	<style type="text/css" scoped> 
+						#pic-page2-photo1{
+							position: absolute;
+						    left: 14%;
+						    top: 52.6%;
+						    width: 52.8%;
+						    height: 37%;
+						}
+						#pic-page2-photo2{
+							position: absolute;
+						    left: 37%;
+						    top: 22%;
+						    width: 49%;
+						    height: 26%;
+						}
+					</style>
+		        	<canvas id="pic-page2-bg"></canvas>
+		        	<canvas id="pic-page2-photo1"></canvas>
+		        	<canvas id="pic-page2-photo2"></canvas>
+		        </section>
+		        <!--相册3-->
+		        <section class="swiper-slide pic-page3">
+		        	<style type="text/css" scoped> 
+						#pic-page3-photo1{
+						    position: absolute;
+						    left: 10%;
+						    top: 66.6%;
+						    width: 43.8%;
+						    height: 19%;
+						    transform: rotate(-8deg);
+						    -webkit-transform: rotate(-8deg);
+							-moz-transform: rotate(-8deg);
+							-ms-transform: rotate(-8deg);
+							-o-transform: rotate(-8deg);
+						}
+						#pic-page3-photo2{
+						    position: absolute;
+						    left: 46%;
+						    top: 31%;
+						    width: 42%;
+						    height: 30%;
+						    transform: rotate(-3deg);
+						    -webkit-transform: rotate(-3deg);
+							-moz-transform: rotate(-3deg);
+							-ms-transform: rotate(-3deg);
+							-o-transform: rotate(-3deg);
+						}
+						#pic-page3-photo3{
+							position: absolute;
+						    left: 12%;
+						    top: 11.7%;
+						    width: 28.5%;
+						    height: 18.5%;
+						    transform: rotate(14deg);
+						    -webkit-transform: rotate(14deg);
+							-moz-transform: rotate(14deg);
+							-ms-transform: rotate(14deg);
+							-o-transform: rotate(14deg);
+						}
+					</style>
+		        	<canvas id="pic-page3-bg"></canvas>
+		        	<canvas id="pic-page3-photo1"></canvas>
+		        	<canvas id="pic-page3-photo2"></canvas>
+		        	<canvas id="pic-page3-photo3"></canvas>
+		        </section>
+		        <!--相册4-->
+		        <section class="swiper-slide pic-page4">
+		        	<style type="text/css" scoped>
+		        		#pic-page4-photo1{
+						    position: absolute;
+						    left: 17%;
+						    top: 70%;
+						    width: 40%;
+						    height: 22%;
+						}
+						#pic-page4-photo2{
+					        position: absolute;
+						    left: 38%;
+						    top: 43%;
+						    width: 49.5%;
+						    height: 23.5%;
+						}
+						#pic-page4-photo3{
+						    position: absolute;
+						    left: 11%;
+						    top: 22%;
+						    width: 26%;
+						    height: 17.5%;
+						}
+						#pic-page4-photo4{
+						    position: absolute;
+						    left: 42%;
+						    top: 11%;
+						    width: 36%;
+						    height: 18%;
+						}
+		        	</style>
+		        	<canvas id="pic-page4-bg"></canvas>
+		        	<canvas id="pic-page4-photo1"></canvas>
+		        	<canvas id="pic-page4-photo2"></canvas>
+		        	<canvas id="pic-page4-photo3"></canvas>
+		        	<canvas id="pic-page4-photo4"></canvas>
+		        </section>
+		        <!--相册5-->
+		        <section class="swiper-slide pic-page5">
+		        	<style type="text/css" scoped>
+		        		#pic-page5-photo1{
+					        position: absolute;
+						    left: 42%;
+						    top: 59%;
+						    width: 44%;
+						    height: 28.5%;
+						}
+						#pic-page5-photo2{
+				            position: absolute;
+						    left: 55%;
+						    top: 34%;
+						    width: 32%;
+						    height: 19%;	
+						}
+						#pic-page5-photo3{
+					        position: absolute;
+						    left: 13%;
+						    top: 34%;
+						    width: 31%;
+						    height: 19%;
+						}
+						#pic-page5-photo4{
+					        position: absolute;
+						    left: 54%;
+						    top: 9%;
+						    width: 18%;
+						    height: 19%;
+						}
+						#pic-page5-photo5{
+					        position: absolute;
+						    left: 13%;
+						    top: 9%;
+						    width: 30%;
+						    height: 19%;
+						}
+		        	</style>
+		        	<canvas id="pic-page5-bg"></canvas>
+		        	<canvas id="pic-page5-photo1"></canvas>
+		        	<canvas id="pic-page5-photo2"></canvas>
+		        	<canvas id="pic-page5-photo3"></canvas>
+		        	<canvas id="pic-page5-photo4"></canvas>
+		        	<canvas id="pic-page5-photo5"></canvas>
+		        </section>
 		        <!--第二页-->
 		        <div class="swiper-slide middle">
 		        	<canvas id="middle-bg"></canvas>
@@ -545,6 +719,50 @@
 		
 		var middleBg = document.querySelector('#middle-bg');
 		drawCanvasImg(middleBg,'img/num1/num1-cover2.png');
+		
+		drawBg(5);
+		function drawBg(n){
+			for(var i=1;i<=n;i++){
+				console.log(n);
+				var coverPicBg = document.querySelector('#pic-page'+i+'-bg');
+				drawCanvasImg(coverPicBg,'img/num1/bg ('+i+').png');
+			}
+		}
+		
+		var picPage1Photo1 = document.querySelector('#pic-page1-photo1');
+		drawCanvasImg(picPage1Photo1,'img/num1/img.jpg');
+		
+		var picPage2Photo1 = document.querySelector('#pic-page2-photo1');
+		drawCanvasImg(picPage2Photo1,'img/num1/img.jpg');
+		var picPage2Photo2 = document.querySelector('#pic-page2-photo2');
+		drawCanvasImg(picPage2Photo2,'img/num1/img.jpg');
+		
+		var picPage3Photo1 = document.querySelector('#pic-page3-photo1');
+		drawCanvasImg(picPage3Photo1,'img/num1/img.jpg');
+		var picPage3Photo2 = document.querySelector('#pic-page3-photo2');
+		drawCanvasImg(picPage3Photo2,'img/num1/img.jpg');
+		var picPage3Photo3 = document.querySelector('#pic-page3-photo3');
+		drawCanvasImg(picPage3Photo3,'img/num1/img.jpg');
+		
+		var picPage4Photo1 = document.querySelector('#pic-page4-photo1');
+		drawCanvasImg(picPage4Photo1,'img/num1/img.jpg');
+		var picPage4Photo2 = document.querySelector('#pic-page4-photo2');
+		drawCanvasImg(picPage4Photo2,'img/num1/img.jpg');
+		var picPage4Photo3 = document.querySelector('#pic-page4-photo3');
+		drawCanvasImg(picPage4Photo3,'img/num1/img.jpg');
+		var picPage4Photo4 = document.querySelector('#pic-page4-photo4');
+		drawCanvasImg(picPage4Photo4,'img/num1/img.jpg');
+		
+		var picPage5Photo1 = document.querySelector('#pic-page5-photo1');
+		drawCanvasImg(picPage5Photo1,'img/num1/img.jpg');
+		var picPage5Photo2 = document.querySelector('#pic-page5-photo2');
+		drawCanvasImg(picPage5Photo2,'img/num1/img.jpg');
+		var picPage5Photo3 = document.querySelector('#pic-page5-photo3');
+		drawCanvasImg(picPage5Photo3,'img/num1/img.jpg');
+		var picPage5Photo4 = document.querySelector('#pic-page5-photo4');
+		drawCanvasImg(picPage5Photo4,'img/num1/img.jpg');
+		var picPage5Photo5 = document.querySelector('#pic-page5-photo5');
+		drawCanvasImg(picPage5Photo5,'img/num1/img.jpg');
 	</script>
 	<script type="text/javascript">
 		const proportion = 39.375;
