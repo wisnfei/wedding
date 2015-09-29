@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" type="text/css" href="css/swiper.3.1.2.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/animate.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
+		<style>
+			html{
+				height: 100%;
+			}
+			body{
+				font-family: "微软雅黑";
+				background: gainsboro;
+		        margin: 0;
+        		padding: 0;
+        		width: 100%;
+		        height: 100%;
+			}
+			body .dis-none{
+				display: none;
+			}
+			body .dis-show{
+				display: block;
+			}
+			.swiper-container {
+		        width: 100%;
+		        height: 100%;
+		        background: white;
+		    }
+			.swiper-slide{
+				text-align: center;
+		        font-size: 18px;
+		        background: white;
+			}
+			.last{
+				background: url(img/lastpage-bg.png);
+			}
+			.last .part-top{
+				width: 90%;
+				background: white;
+				margin: auto;
+				margin-top: 15%;
+				height: 30%;
+				position: relative;
+				margin-bottom: 5%;
+				border-radius: 8px;
+			}
+			.last .part-top .part-top-line{
+				width: 90%;
+				margin: auto;
+				border-bottom: 1px solid gray;
+				font-size: 14px;
+				padding: 0px 0px 10px 0px;
+				text-align: left;
+				position: absolute;
+				margin-left: 5%;
+			}
+			.last .part-top .part-top-line:first-child{
+				top: 10%;
+			}
+			.last .part-top .part-top-line:nth-child(2){
+				top:50%;
+				margin-top: -11px;
+			}
+			.last .part-top .part-top-line:nth-child(3){
+				bottom: 10%;
+			}
+			.last .part-top .part-top-line span{
+				display: inline-block;
+				width: 40%;
+				text-align: left;
+			}
+			.last .part-top .part-top-line input{
+				border: none;
+				outline: none;
+				font-size: 14px;
+    			width: 50%;
+			}
+			.last .part-top .part-top-line a{
+				width: 55%;
+    			display: inline-block;
+				font-size: 14px;
+				background: url(img/picker.png) no-repeat right;
+				background-size: 16px 16px;
+			}
+			.last .part-down{
+				height: 50%;
+				margin-top: 5%;
+				background: white;
+				width: 90%;
+				margin: auto;
+				position: relative;
+				border-radius: 8px;
+			}
+			.part-down .title{
+				text-align: left;
+				padding-top: 8%;
+				text-indent: 20px;
+				font-size: 14px;
+				
+			}
+			.part-down .backgroud{
+				height: 40%;
+			}
+			.part-down .backgroud textarea{
+				background: gainsboro;
+				outline: none;
+				border: none;
+				overflow: hidden;
+				resize: none;
+				width: 90%;
+				margin-top: 20px;
+				height: 100%;
+				padding-left: 10px;
+			}
+			.part-down .button{}
+			.part-down .button button{
+				background: green;
+				outline: none;
+				border: none;
+				width: 80%;
+				height: 12%;
+				color: white;
+				font-size: 16px;
+				border-radius: 8px;
+				position: absolute;
+				left: 50%;
+				margin-left: -40%;
+				bottom: 10%;
+			}
+			section.cancel{
+			    height: 100%;
+			    width: 100%;
+			    background: black;
+			    position: fixed;
+			    opacity: 0.4;
+			    top: 0;
+			    left: 0;
+			}
+			/*attend面板*/
+			section.attend{
+				position: fixed;
+				bottom: 0;
+				background-color: aliceblue;
+				width: 100%;
+				padding-bottom: 80px;
+				border-top-left-radius: 8px;
+    			border-top-right-radius: 8px;
+			}
+			section.attend>div.attend-line{
+				border-bottom: 1px solid gray;
+				line-height: 50px;
+				height: 50px;
+				font-size: 14px;
+				width: 94%;
+    			margin: auto;
+			}
+			section.attend>div.attend-line span{
+				display: inline-block;
+   				width: 55px;
+   				text-align: left;
+   				margin-left: 10px;
+			}
+			section.attend>div.attend-line span i{
+				color: orange;
+				margin-left: 10px;
+			}
+			/*count面板*/
+			section.count{
+				position: fixed;
+				bottom: 0;
+				background-color: aliceblue;
+				width: 100%;
+				padding-bottom: 80px;
+				border-top-left-radius: 8px;
+    			border-top-right-radius: 8px;
+			}
+			section.count>div.count-line{
+				border-bottom: 1px solid gray;
+				line-height: 50px;
+				height: 50px;
+				font-size: 14px;
+				width: 94%;
+    			margin: auto;
+			}
+			section.count>div.count-line span{
+				display: inline-block;
+   				width: 55px;
+   				text-align: left;
+   				margin-left: 10px;
+			}
+			section.count>div.count-line span i{
+				color: orange;
+				margin-left: 10px;
+			}
+			/*cover*/
+			.upload-pic {
+			    position: absolute;
+			    left: 50%;
+			    top: 50%;
+			    display: inline-block;
+			    background: #D0EEFF;
+			    border: 1px solid #99D3F5;
+			    border-radius: 4px;
+			    padding: 4px 12px;
+			    overflow: hidden;
+			    color: #1E88C7;
+			    text-decoration: none;
+			    text-indent: 0;
+			    line-height: 20px;
+			    margin-left: -50px;
+			}
+			.upload-pic input {
+			    position: absolute;
+			    font-size: 100px;
+			    right: 0;
+			    top: 0;
+			    opacity: 0;
+			}
+			.cover #cover-bg{
+				position: absolute;
+				left: 0;
+				top: 0;
+				width:100%;
+				height:100%;
+			}
+			.cover .cover-words-title{
+				font-size: 1.125rem;
+				position: absolute;
+				left: 25%;
+				top: 11%;
+				width: 50%;
+			}
+			.cover .cover-words-title>div>span:first-child{
+				float: left;
+			}
+			.cover .cover-words-title>div>span:nth-child(2){
+				float: right;
+			}
+			.cover .cover-words-time{
+				text-align: left;
+				font-size: 0.875rem;
+				position: absolute;
+				left: 35%;
+				top: 76.4%;
+			}
+			.cover .cover-words-address{
+				text-align: left;
+				font-size: 0.875rem;
+				position: absolute;
+				left: 35%;
+				top: 85%;
+			}
+			.cover #cover-pic{
+			    width: 62%;
+			    height: 50%;
+			    margin-top: 7.5625rem;
+			}
+			/*middle*/
+			.middle #middle-icon{
+				width: 5rem;
+			    height: 5rem;
+			    border-radius: 50%;
+			    position: absolute;
+			    top: 6.375rem;
+			    left: 6%;
+			}
+			.middle article.middle-word{
+				position: absolute;
+			    top: 5rem;
+			    left: 9rem;
+			    font-size: 0.7rem;
+			    width: 52%;
+			    text-align: left;
+			    line-height: 1.5rem;
+			}
+			.middle #middle-bg{
+				width: 100%;
+				height: 100%;
+			}
+			#map-container{
+				margin: 0 0 0 0;
+			    overflow: hidden;
+			    position: absolute;
+			    z-index: 0;
+			    width: 84%;
+			    top: 56%;
+			    left: 7%;
+			    height: 34%;
+			    color: rgb(0, 0, 0);
+			    text-align: left;
+			    background-color: rgb(243, 241, 236);
+			}
+			.anchorBL{display:none}
+			#pic-page1-bg,#pic-page2-bg,#pic-page3-bg,#pic-page4-bg,#pic-page5-bg{
+				width: 100%;
+				height: 100%;
+			}
+
+		</style>
+	</head>
+	<body>
+		
+		<div class="swiper-container">
+		    <div class="swiper-wrapper">
+		    	<!--第一页-->
+		        <div class="swiper-slide cover">
+		        	<canvas id="cover-bg"></canvas>
+		        	<canvas id="cover-pic"></canvas>
+		        	<div class="cover-words-title">
+		        		<div class="">
+		        			<span>陈思成</span>
+		        			<span>董妮娅</span>
+		        		</div>
+		        	</div>
+		        	<div class="cover-words-time">
+		        		<div class="">
+		        			<article>2016年02月14日12时0分</article>
+		        			<article>农历：正月初七</article>
+		        		</div>
+		        	</div>
+		        	<div class="cover-words-address">
+		        		<div class="">
+		        			<article>合肥希尔顿大酒店</article>
+		        			<article>国际厅4F</article>
+		        		</div>
+		        	</div>
+					<a href="javascript:;" class="upload-pic" style="display: none;">选择文件
+					    <input type="file" name="" id="">
+					</a>
+		        </div>
+		        <!--相册1-->
+		        <section class="swiper-slide pic-page1">
+		        	<style type="text/css" scoped="">
+		        		#pic-page1-photo1{
+						    position: absolute;
+						    left: 19%;
+						    top: 19.6%;
+						    width: 63.8%;
+						    height: 53%;
+						    transform: rotate(-8deg);
+						    -webkit-transform: rotate(-8deg);
+							-moz-transform: rotate(-8deg);
+							-ms-transform: rotate(-8deg);
+							-o-transform: rotate(-8deg);
+						}
+		        	</style>
+		        	<canvas id="pic-page1-bg"></canvas>
+		        	<canvas id="pic-page1-photo1"></canvas>
+		        </section>
+		        <!--相册2-->
+		        <section class="swiper-slide pic-page2">
+		        	<style type="text/css" scoped> 
+						#pic-page2-photo1{
+							position: absolute;
+						    left: 14%;
+						    top: 52.6%;
+						    width: 52.8%;
+						    height: 37%;
+						}
+						#pic-page2-photo2{
+							position: absolute;
+						    left: 37%;
+						    top: 22%;
+						    width: 49%;
+						    height: 26%;
+						}
+					</style>
+		        	<canvas id="pic-page2-bg"></canvas>
+		        	<canvas id="pic-page2-photo1"></canvas>
+		        	<canvas id="pic-page2-photo2"></canvas>
+		        </section>
+		        <!--相册3-->
+		        <section class="swiper-slide pic-page3">
+		        	<style type="text/css" scoped> 
+						#pic-page3-photo1{
+						    position: absolute;
+						    left: 10%;
+						    top: 66.6%;
+						    width: 43.8%;
+						    height: 19%;
+						    transform: rotate(-8deg);
+						    -webkit-transform: rotate(-8deg);
+							-moz-transform: rotate(-8deg);
+							-ms-transform: rotate(-8deg);
+							-o-transform: rotate(-8deg);
+						}
+						#pic-page3-photo2{
+						    position: absolute;
+						    left: 46%;
+						    top: 31%;
+						    width: 42%;
+						    height: 30%;
+						    transform: rotate(-3deg);
+						    -webkit-transform: rotate(-3deg);
+							-moz-transform: rotate(-3deg);
+							-ms-transform: rotate(-3deg);
+							-o-transform: rotate(-3deg);
+						}
+						#pic-page3-photo3{
+							position: absolute;
+						    left: 12%;
+						    top: 11.7%;
+						    width: 28.5%;
+						    height: 18.5%;
+						    transform: rotate(14deg);
+						    -webkit-transform: rotate(14deg);
+							-moz-transform: rotate(14deg);
+							-ms-transform: rotate(14deg);
+							-o-transform: rotate(14deg);
+						}
+					</style>
+		        	<canvas id="pic-page3-bg"></canvas>
+		        	<canvas id="pic-page3-photo1"></canvas>
+		        	<canvas id="pic-page3-photo2"></canvas>
+		        	<canvas id="pic-page3-photo3"></canvas>
+		        </section>
+		        <!--相册4-->
+		        <section class="swiper-slide pic-page4">
+		        	<style type="text/css" scoped>
+		        		#pic-page4-photo1{
+						    position: absolute;
+						    left: 17%;
+						    top: 70%;
+						    width: 40%;
+						    height: 22%;
+						}
+						#pic-page4-photo2{
+					        position: absolute;
+						    left: 38%;
+						    top: 43%;
+						    width: 49.5%;
+						    height: 23.5%;
+						}
+						#pic-page4-photo3{
+						    position: absolute;
+						    left: 11%;
+						    top: 22%;
+						    width: 26%;
+						    height: 17.5%;
+						}
+						#pic-page4-photo4{
+						    position: absolute;
+						    left: 42%;
+						    top: 11%;
+						    width: 36%;
+						    height: 18%;
+						}
+		        	</style>
+		        	<canvas id="pic-page4-bg"></canvas>
+		        	<canvas id="pic-page4-photo1"></canvas>
+		        	<canvas id="pic-page4-photo2"></canvas>
+		        	<canvas id="pic-page4-photo3"></canvas>
+		        	<canvas id="pic-page4-photo4"></canvas>
+		        </section>
+		        <!--相册5-->
+		        <section class="swiper-slide pic-page5">
+		        	<style type="text/css" scoped>
+		        		#pic-page5-photo1{
+					        position: absolute;
+						    left: 42%;
+						    top: 59%;
+						    width: 44%;
+						    height: 28.5%;
+						}
+						#pic-page5-photo2{
+				            position: absolute;
+						    left: 55%;
+						    top: 34%;
+						    width: 32%;
+						    height: 19%;	
+						}
+						#pic-page5-photo3{
+					        position: absolute;
+						    left: 13%;
+						    top: 34%;
+						    width: 31%;
+						    height: 19%;
+						}
+						#pic-page5-photo4{
+					        position: absolute;
+						    left: 54%;
+						    top: 9%;
+						    width: 18%;
+						    height: 19%;
+						}
+						#pic-page5-photo5{
+					        position: absolute;
+						    left: 13%;
+						    top: 9%;
+						    width: 30%;
+						    height: 19%;
+						}
+		        	</style>
+		        	<canvas id="pic-page5-bg"></canvas>
+		        	<canvas id="pic-page5-photo1"></canvas>
+		        	<canvas id="pic-page5-photo2"></canvas>
+		        	<canvas id="pic-page5-photo3"></canvas>
+		        	<canvas id="pic-page5-photo4"></canvas>
+		        	<canvas id="pic-page5-photo5"></canvas>
+		        </section>
+		        <!--第二页-->
+		        <div class="swiper-slide middle">
+		        	<canvas id="middle-bg"></canvas>
+		        	<canvas id="middle-icon"></canvas>
+		        	<article class="middle-word">亲爱的，我们决定奔向所有小夫妻向往的温馨甜蜜，并发誓将快乐幸福进行到底。请第一时间来参加我们的婚礼，为我们见证与祝福</article>
+		        	<figure id="map-container"></figure>
+		        </div>
+		        <!--第三页-->
+		        <div class="swiper-slide last">
+		        	<div class="part-top">
+		        		<div class="part-top-line" id="part-top-line-name">
+		        			<span class="">您的真实姓名</span>
+		        			<input placeholder="姓名" />
+		        		</div>
+		        		<div class="part-top-line" id="part-top-line-attend">
+		        			<span class="">是否赴宴</span>
+		        			<a class="" id="but-attend">赴宴</a>
+		        		</div>
+		        		<div class="part-top-line" id="part-top-line-count">
+		        			<span class="">赴宴人数</span>
+		        			<a class="" id="but-count">1人</a>
+		        		</div>
+		        	</div>
+		        	<div class="part-down">
+		        		<div class="title">对新人说些什么</div>
+		        		<div class="backgroud">
+		        			<textarea>收到请贴了，祝你们白头偕老</textarea>
+		        		</div>
+		        		<div class="button">
+		        			<button>
+		        				立即发送
+		        			</button>
+		        		</div>
+		        	</div>
+		        	<section class="cancel dis-none" id="cancel"></section>
+		        	<section class="attend dis-none" id="attend">
+		        		<div class="attend-line">
+		        			<span class="">赴宴<i class="fa fa-check"></i></span>
+		        		</div>
+		        		<div class="attend-line">
+		        			<span>待定</span>
+		        		</div>
+		        		<div class="attend-line">
+		        			<span>有事</span>
+		        		</div>
+		        	</section>
+		        	<section class="count dis-none" id="count">
+		        		<div class="count-line">
+		        			<span class="">1人<i class="fa fa-check"></i></span>
+		        		</div>
+		        		<div class="count-line">
+		        			<span>2人</span>
+		        		</div>
+		        		<div class="count-line">
+		        			<span>3人</span>
+		        		</div>
+		        		<div class="count-line">
+		        			<span>4人</span>
+		        		</div>
+		        		<div class="count-line">
+		        			<span>5人</span>
+		        		</div>
+		        		<div class="count-line">
+		        			<span>6人</span>
+		        		</div>
+		        	</section>
+		        </div>
+		    </div>
+		</div>
+		
+	</body>
+	<script type="text/javascript" src="js/swiper.3.1.2.min.js" ></script>
+	<script type="text/javascript" src="js/swiper.animate1.0.2.min.js" ></script>
+	<script type="text/javascript" src="js/zepto.min.js"></script>
+	<script type="text/javascript" src="js/touch.js"></script>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=KKh8NCnEP4L63oMiZLLBQP2e"></script>
+	<script type="text/javascript">
+		dataConfig = {
+			direction : 'vertical',
+			initialSlide :5,
+		  	effect : 'coverflow',
+			onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+		    	swiperAnimateCache(swiper); //隐藏动画元素 
+		    	swiperAnimate(swiper); //初始化完成开始动画
+		  	}, 
+		  	onSlideChangeEnd: function(swiper){ 
+		    	swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+		  	},
+		}
+		var mySwiper = new Swiper ('.swiper-container',dataConfig); 
+	</script>
+	<script type="text/javascript">
+		var butAttend = $('#but-attend');
+		var butCount = $('#but-count');
+		var cancel = $('#cancel');
+		var attend = $('#attend');
+		var count = $('#count');
+		var attendLine = $('.attend-line');
+		var countLine = $('.count-line');
+		var partTopLineAttend = $('#part-top-line-attend');
+		var partTopLineCount = $('#part-top-line-count');
+		var partTopLineName = $('#part-top-line-name');
+		
+		butAttend.on('tap',showAttendAndCancel);
+		butCount.on('tap',showCountAndCancel);
+		cancel.on('tap',hidAttendAndCancel);
+		cancel.on('tap',hidCountAndCancel);
+		attendLine.on('touchend',changeAttend);
+		countLine.on('touchend',changeCount);
+		
+		function hidAttendAndCancel(){
+			cancel.hide();
+			attend.hide();
+		}
+		function showAttendAndCancel(){
+			cancel.show();
+			attend.show();
+		}
+		
+		function showCountAndCancel(){
+			cancel.show();
+			count.show();
+		}
+		function hidCountAndCancel(){
+			cancel.hide();
+			count.hide();
+		}
+		
+		function changeAttend(event){
+			event.preventDefault();
+			var _this=$(this); //
+			var attendWord = _this.children('span').text();
+			var isAttendRes = isAttend(attendWord);
+			
+			if(isAttendRes){
+				partTopLineCount.show();
+			}else{
+				partTopLineCount.hide();
+			}
+			
+			butAttend.html(attendWord);
+			hidAttendAndCancel();
+			removeCheck(attendLine);
+			addCheck(_this);
+			
+			console.log(attendWord);
+			console.log(this);
+			console.log(_this);
+			console.log(isAttendRes);
+		}
+		
+		function changeCount(event){
+			event.preventDefault();
+			var _this=$(this); //
+			var countWord = _this.children('span').text();
+			
+			butCount.html(countWord);
+			hidCountAndCancel();
+			removeCheck(countLine);
+			addCheck(_this);
+			
+			console.log(countWord);
+			console.log(this);
+			console.log(_this);
+		}
+		
+		function removeCheck(whatLine){
+			whatLine.children('span').children('i').remove();
+		}
+		
+		function addCheck(_this){
+			_this.children('span').append('<i class="fa fa-check"></i>');
+		}
+		
+		function isAttend(attendWord){
+			if(attendWord == '赴宴'){
+				return true;
+			}else if(attendWord !== '赴宴'){
+				return false;
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		makeFixedScreenSize();
+		function makeFixedScreenSize(){
+			var deviceHeight = $(window).height();
+			var deviceWidth = $(window).width();
+			$('html').css('height',deviceHeight);	
+			console.log(deviceHeight);
+		}
+		window.addEventListener("resize",makeFixedScreenSize);
+	</script>
+	<script type="text/javascript">
+		function drawCanvasImg(obj,src){
+			var ctx = obj.getContext('2d');
+			var img = new Image();
+			img.src = src;
+			img.addEventListener('load',function(){
+				obj.width = img.width;
+				obj.height = img.height;
+				ctx.drawImage(img,0,0);
+			})
+		}
+		
+		var coverBg = document.getElementById('cover-bg');
+		drawCanvasImg(coverBg,'img/num1/num1-cover.png');
+		
+		var coverPic = document.querySelector('#cover-pic');
+		drawCanvasImg(coverPic,'img/num1/img.jpg');
+		
+		var middleIcon = document.querySelector('#middle-icon');
+		drawCanvasImg(middleIcon,'img/num1/img.jpg');
+		
+		var middleBg = document.querySelector('#middle-bg');
+		drawCanvasImg(middleBg,'img/num1/num1-cover2.png');
+		
+		drawBg(5);
+		function drawBg(n){
+			for(var i=1;i<=n;i++){
+				console.log(n);
+				var coverPicBg = document.querySelector('#pic-page'+i+'-bg');
+				drawCanvasImg(coverPicBg,'img/num1/bg ('+i+').png');
+			}
+		}
+		
+		var picPage1Photo1 = document.querySelector('#pic-page1-photo1');
+		var arrPicPage1 = [
+			{1:[picPage1Photo1,'img/num1/img.jpg']},  //0
+		]
+		
+		var picPage2Photo1 = document.querySelector('#pic-page2-photo1');
+		var picPage2Photo2 = document.querySelector('#pic-page2-photo2');
+		var arrPicPage2 = [
+			{1:[picPage2Photo1,'img/num1/img.jpg']},  //0
+			{2:[picPage2Photo2,'img/num1/img.jpg']},  //1
+		]
+		
+		var picPage3Photo1 = document.querySelector('#pic-page3-photo1');
+		var picPage3Photo2 = document.querySelector('#pic-page3-photo2');
+		var picPage3Photo3 = document.querySelector('#pic-page3-photo3');
+		var arrPicPage3 = [
+			{1:[picPage3Photo1,'img/num1/img.jpg']},  //0
+			{2:[picPage3Photo2,'img/num1/img.jpg']},  //1
+			{3:[picPage3Photo3,'img/num1/img.jpg']},  //2
+		]
+		
+		var picPage4Photo1 = document.querySelector('#pic-page4-photo1');
+		var picPage4Photo2 = document.querySelector('#pic-page4-photo2');
+		var picPage4Photo3 = document.querySelector('#pic-page4-photo3');
+		var picPage4Photo4 = document.querySelector('#pic-page4-photo4');
+		var arrPicPage4 = [
+			{1:[picPage4Photo1,'img/num1/img.jpg']},  //0
+			{2:[picPage4Photo2,'img/num1/img.jpg']},  //1
+			{3:[picPage4Photo3,'img/num1/img.jpg']},  //2
+			{4:[picPage4Photo4,'img/num1/img.jpg']},  //3
+		]
+
+		var picPage5Photo1 = document.querySelector('#pic-page5-photo1');
+		var picPage5Photo2 = document.querySelector('#pic-page5-photo2');
+		var picPage5Photo3 = document.querySelector('#pic-page5-photo3');
+		var picPage5Photo4 = document.querySelector('#pic-page5-photo4');
+		var picPage5Photo5 = document.querySelector('#pic-page5-photo5');
+		var arrPicPage5 = [
+			{1:[picPage5Photo1,'img/num1/img.jpg']},  //0
+			{2:[picPage5Photo2,'img/num1/img.jpg']},  //1
+			{3:[picPage5Photo3,'img/num1/img.jpg']},  //2
+			{4:[picPage5Photo4,'img/num1/img.jpg']},  //3
+			{5:[picPage5Photo5,'img/num1/img.jpg']},  //4
+		]
+		
+		var objPicPage = {
+			1:arrPicPage1,
+			2:arrPicPage2,
+			3:arrPicPage3,
+			4:arrPicPage4,
+			5:arrPicPage5,
+		}
+		
+		function drawPhoto(arr){
+			var i = 0;
+			while(i<arr.length){
+				drawCanvasImg(arr[i][i+1][0],arr[i][i+1][1]);
+				i++;
+			}
+		}
+		for(item in objPicPage){
+			drawPhoto(objPicPage[item]);
+		}
+	</script>
+	<script type="text/javascript">
+		const proportion = 39.375;
+		var html = document.querySelector('html');
+		resizeFontSize();
+		window.addEventListener('resize',resizeFontSize);
+		
+		function resizeFontSize(){
+			this.deviceHeight = $(window).height();
+			this.fontScale = (this.deviceHeight+3)/proportion;
+			this.fontSize = this.fontScale;
+			html.style.fontSize = this.fontSize + 'px';
+			console.log(this.fontSize);
+		}
+	</script>
+	<script type="text/javascript"> 
+		var map = new BMap.Map("map-container");          // 创建地图实例  
+		var point = new BMap.Point(117.287021,31.874821);  // 创建点坐标  
+		map.centerAndZoom(point, 15);                 // 初始化地图，设置中心点坐标和地图级别  
+		map.addControl(new BMap.NavigationControl());
+		var marker = new BMap.Marker(point);        // 创建标注    
+		map.addOverlay(marker);                     // 将标注添加到地图中
+	</script>  
+</html>
